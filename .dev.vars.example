@@ -1,0 +1,28 @@
+# Copy jadi ".dev.vars" (tanpa .example) buat testing lokal lewat
+# `wrangler dev`. JANGAN commit file ".dev.vars" yang udah keisi (udah
+# di-cover .gitignore).
+#
+# Isi persis pake NILAI YANG SAMA kayak env var di Vercel project
+# api-kasir-main lu sekarang -- kecuali MONGODB_URI, itu WAJIB ganti ke
+# database TES (jangan pake database production), dan CORS_ORIGIN boleh
+# ditambahin http://localhost kalau mau tes dari browser lokal.
+
+MONGODB_URI="mongodb+srv://user:password@cluster.mongodb.net/kasir_test?retryWrites=true&w=majority"
+JWT_SECRET="samain-kayak-punya-vercel-atau-bikin-baru-khusus-tes"
+CORS_ORIGIN="https://kasir-master.pages.dev"
+CRON_SECRET="bikin-random-string-buat-tes-cron-manual"
+API_KEY=""
+INIT_SECRET=""
+
+TELEGRAM_BOT_TOKEN=""
+TELEGRAM_CHAT_ID=""
+
+IMGBB_API_KEY=""
+IMAGEKIT_PRIVATE_KEY=""
+IMAGEKIT_FOLDER="/kasir-hk/produk"
+
+NEON_DATABASE_URL=""
+
+VAPID_PUBLIC_KEY=""
+VAPID_PRIVATE_KEY=""
+VAPID_SUBJECT="mailto:contoh@email.com"

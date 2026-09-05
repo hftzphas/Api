@@ -1,0 +1,28 @@
+{
+  "name": "api-kasir-cf-test",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Test deploy khusus -- porting api-kasir-main (Express + Mongoose) ke Cloudflare Workers pake Durable Object buat jaga koneksi Mongoose. Repo TERPISAH, bukan pengganti api-kasir-main yang di Vercel.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "postinstall": "node scripts/patch-mongoose.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "adm-zip": "^0.6.0",
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.3",
+    "web-push": "^3.6.7",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

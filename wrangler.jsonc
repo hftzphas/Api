@@ -1,0 +1,25 @@
+{
+  "name": "api-kasir-cf-test",
+  "main": "src/index.js",
+  // nodejs_compat -- wajib, ini yang bikin node:net/tls/http kepake beneran
+  // (bukan cuma stub), termasuk yang dipake driver Mongo & httpServerHandler.
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "API_DO", "class_name": "ApiDurableObject" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ApiDurableObject"] }
+  ],
+
+  // Jadwal SAMA PERSIS kayak server/vercel.json yang asli:
+  //   - backup Telegram & backup Neon: Sabtu jam 17:00 UTC
+  //   - cek barang expired: tiap hari jam 17:00 UTC
+  // Cloudflare Cron Triggers pakai format cron biasa, jadi tinggal copy.
+  "triggers": {
+    "crons": ["0 17 * * 6", "0 17 * * *"]
+  }
+}
